@@ -3,3 +3,4 @@ rtoml
 pydantic
 hydra-core
 omegaconf
+toml
