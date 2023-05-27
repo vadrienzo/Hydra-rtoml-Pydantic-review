@@ -1,0 +1,15 @@
+# Notes on `rtoml`.
+
+A little thoughts on different examples:
+
+### `NoneType` not handle it at the point of loading.
+
+When dumping a python dictionary with `NoneType` values 
+into a TOML file, results into a `null` string (which makes "sense").
+The problem arise when loading, when the TOML file is load, the expected
+value was a `NoneType` but turned out to be the string `null`. In my opininon
+it would make sense to parse a flag saying that you want to handle `NoneTypes`.
+Only when `True`, it would search for special string, such as `null`, `nil` 
+or `None`, and turn those keys into `NoneType`.
+
+
